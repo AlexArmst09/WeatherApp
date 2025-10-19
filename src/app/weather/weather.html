@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="weather-card">
+    <h1>🌤️ Weather App</h1>
+    
+    <div class="search-box">
+  <input 
+    type="text" 
+    [(ngModel)]="city" 
+    (keyup.enter)="getWeather()"
+    placeholder="Enter city name..."
+    class="search-input"
+  />
+  <input 
+    type="text" 
+    [(ngModel)]="state" 
+    (keyup.enter)="getWeather()"
+    placeholder="State (optional)..."
+    class="search-input state-input"
+  />
+  <button (click)="getWeather()" class="search-button">
+    Search
+  </button>
+</div>
+
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="loading" class="loading">
+      Loading weather data...
+    </div>
+
+    <div *ngIf="weather && !loading" class="weather-info">
+      <h2>{{ weather.name }}</h2>
+      
+      <div class="weather-icon">
+        <img 
+          [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" 
+          [alt]="weather.weather[0].description"
+        />
+      </div>
+
+      <div class="temperature">
+        {{ weather.main.temp }}°F
+      </div>
+
+      <div class="description">
+        {{ weather.weather[0].description }}
+      </div>
+
+      <div class="details">
+        <div class="detail-item">
+          <span class="label">Feels Like:</span>
+          <span class="value">{{ weather.main.feels_like }}°F</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Humidity:</span>
+          <span class="value">{{ weather.main.humidity }}%</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Wind Speed:</span>
+          <span class="value">{{ weather.wind.speed }} mph</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
