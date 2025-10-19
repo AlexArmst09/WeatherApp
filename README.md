@@ -1,59 +1,31 @@
-# WeatherApp
+# Weather App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+A simple Angular app that displays the current weather and 24-hour forecast for any city using the OpenWeatherMap API.
 
-## Development server
+## Features
+- Search weather by city and state
+- 24-hour forecast
+- Responsive design for desktop
+- Error handling for invalid inputs
 
-To start a local development server, run:
+![WeatherApp Screenshot](<img width="676" height="946" alt="image" src="https://github.com/user-attachments/assets/9580d9ec-eb8a-4b09-bf32-e5052a67e013" />)
 
+![WeatherApp Screenshot](<img width="638" height="1022" alt="image" src="https://github.com/user-attachments/assets/99a08755-a46b-4f0c-bca3-5af40bff107a" />)
+
+## Tech Stack
+- Angular 20
+- TypeScript
+- OpenWeatherMap API
+- CSS
+
+## To Test the Application:
 ```bash
-ng serve
-```
+git clone https://github.com/AlexArmst09/WeatherApp.git
+cd WeatherApp
+npm install
+ng serve --open
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
