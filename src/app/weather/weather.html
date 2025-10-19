@@ -3,24 +3,24 @@
     <h1>🌤️ Weather App</h1>
     
     <div class="search-box">
-  <input 
-    type="text" 
-    [(ngModel)]="city" 
-    (keyup.enter)="getWeather()"
-    placeholder="Enter city name..."
-    class="search-input"
-  />
-  <input 
-    type="text" 
-    [(ngModel)]="state" 
-    (keyup.enter)="getWeather()"
-    placeholder="State (optional)..."
-    class="search-input state-input"
-  />
-  <button (click)="getWeather()" class="search-button">
-    Search
-  </button>
-</div>
+      <input 
+        type="text" 
+        [(ngModel)]="city" 
+        (keyup.enter)="getWeather()"
+        placeholder="Enter city name..."
+        class="search-input"
+      />
+      <input 
+        type="text" 
+        [(ngModel)]="state" 
+        (keyup.enter)="getWeather()"
+        placeholder="State (optional)..."
+        class="search-input state-input"
+      />
+      <button (click)="getWeather()" class="search-button">
+        Search
+      </button>
+    </div>
 
     <div *ngIf="errorMessage" class="error">
       {{ errorMessage }}
@@ -60,6 +60,22 @@
         <div class="detail-item">
           <span class="label">Wind Speed:</span>
           <span class="value">{{ weather.wind.speed }} mph</span>
+        </div>
+      </div>
+
+      <!-- 24 Hour Forecast -->
+      <div *ngIf="forecast" class="forecast-section">
+        <h3>24-Hour Forecast</h3>
+        <div class="forecast-grid">
+          <div *ngFor="let item of next24Hours" class="forecast-item">
+            <div class="forecast-time">{{ formatTime(item.dt) }}</div>
+            <img 
+              [src]="'https://openweathermap.org/img/wn/' + item.weather[0].icon + '.png'" 
+              [alt]="item.weather[0].description"
+              class="forecast-icon"
+            />
+            <div class="forecast-temp">{{ item.main.temp | number:'1.0-0' }}°F</div>
+          </div>
         </div>
       </div>
     </div>
